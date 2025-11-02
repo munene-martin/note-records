@@ -1,26 +1,16 @@
-# note-records
-MERN
-Mern ThinkBoard is a lightweight MERN full‑stack app for creating and organizing thinking boards and notes. It pairs a React frontend with an Express/Node backend and MongoDB for persistence. Server-side rate limiting and simple caching use Upstash Redis; environment secrets are loaded only on the server to keep the client bundle free of Node-only modules.
+# React + Vite
 
-Key features
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Create, edit, and organize boards and notes
-Server-side rate limiting via @upstash/ratelimit and @upstash/redis
-Secure env handling: dotenv runs only in Node (guarded), while client uses build-time env vars (VITE_/REACT_APP_)
-Simple, extensible MERN architecture ready for deployment
-Tech stack
+Currently, two official plugins are available:
 
-Frontend: React
-Backend: Node.js + Express
-Database: MongoDB
-Rate limiting / Redis: Upstash
-Local env: dotenv (server only)
-Environment & run
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-Backend needs a .env with MONGO_URI, UPSTASH_REDIS_REST_URL, UPSTASH_REDIS_REST_TOKEN
-Frontend uses build-time vars (e.g., VITE_* or REACT_APP_*)
-Start:
-cd backend && npm install && npm run dev
-cd frontend && npm install && npm run dev
-Note
-Do not import server-only modules into client code. The backend config (backend/config/upstash.js) already guards dotenv with a check for window to prevent bundling Node APIs into the browser.
+## React Compiler
+
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
